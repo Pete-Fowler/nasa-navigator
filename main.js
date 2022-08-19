@@ -26,6 +26,9 @@ function displayIOD(data) {
 
 // Adds data to populate main-bar at the bottom of the image and fades it in
 function displayDetails() {
+  mainBar.style.opacity = 0;
+  mainBar.textContent = '';
+
   const title = document.createElement('span');
   title.id = 'title';
   title.textContent = `Title: ${localData.title} | `;
@@ -42,13 +45,12 @@ function displayDetails() {
   // CSS class .faded-out (which has set the element's opacity to 0)
   mainBar.append(title, date, description);
   mainBar.classList.remove('faded-out');
-  // mainBar.style.opacity = .6;
+  mainBar.style.opacity = .6;
 }
 
 function hideDetails() {
+  mainBar.style.opacity = 0;
   mainBar.classList.add('faded-out');
-  // mainBar.style.opacity = 0;
-
 }
 
 getIOD();
