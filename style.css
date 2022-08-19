@@ -99,8 +99,7 @@ div#main-bar {
     position: absolute;
     bottom: 0px;
     z-index: 10;
-    transition: 6s;
-    opacity: .6;
+    transition: 3s;
     padding: 10px;
     margin: 10px;
     border-radius: 5px;
@@ -112,6 +111,18 @@ div#main-bar {
 class is removed or added back in with JavaScript */
 .faded-out {
     opacity: 0;
+}
+
+#expand {
+    position: absolute;
+    bottom: 0px;
+    margin-left: 50%;
+    margin-right: 50%;
+    height: 40px;
+    border-radius: 5px;
+    background: black;
+    opacity: .4;
+    z-index: 15;
 }
 
 div#main-bar p {
