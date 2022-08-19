@@ -98,7 +98,12 @@ button:hover {
     position: absolute;
     bottom: 0px;
     z-index: 10;
+    transition: 6s;
+}
+
+/* This class with faded-in controls fading DOM elements in and out when the 
+class is removed or added back in with JavaScript */
+.faded-out {
     opacity: 0;
-    transition: .5sec;
 }
 
