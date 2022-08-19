@@ -4,29 +4,75 @@
 * {
     font-family: Roboto;
     color: white;
-    background: black;
+    
 }
 
 body {
     width: 100vw;
     height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 
 #nav {
+    background: black;
     display: flex;
     justify-content: center;
     gap: 20px;
     flex-direction: column;
     width: 25%;
+    height: 100%;
+    min-width: 200px;
 }
 
 h1 {
     font-family: Ubuntu mono;
+    color: #3f3fff;
 }
 
 h1, h3, p {
     margin: 0px 20px;
 }
+
+h1 {
+    font-size: 2.5rem;
+}
+
+#searchBox {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 200px;
+    align-self: center;
+}
+
+#searchInput {
+    padding: 0px;
+    margin: 5px;
+    height: 25px;
+    width: 80%;
+    min-width: 175px;
+    align-self: center;
+    border: 2px solid #3f3fff;
+    border-radius: 5px;
+}
+
+button {
+    background-color: black;
+    border: 2px solid #3f3fff;
+    width: 150px;
+    height: 50px;
+    align-self: center;
+    border-radius: 5px;
+    transition: .5s;
+}
+
+button:hover {
+    color: white;
+    background-color: #3f3fff;
+    border: 2px solid white;
+}
+
 #main {
     background: darkgrey;
 }
