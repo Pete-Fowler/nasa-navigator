@@ -4,7 +4,7 @@
 * {
     font-family: Roboto;
     color: white;
-    
+    box-sizing: border-box;
 }
 
 body {
@@ -91,14 +91,21 @@ button:hover {
     transition: .4s;
 }
 
-#main-bar {
+div#main-bar {
+    font-size: .9rem;
     background-color: black;
-    width: 100%;
-    height: 100px;
+    width: calc(100% - 20px);
+    max-height: 175px;
     position: absolute;
     bottom: 0px;
     z-index: 10;
     transition: 6s;
+    opacity: .6;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 /* This class with faded-in controls fading DOM elements in and out when the 
@@ -107,3 +114,19 @@ class is removed or added back in with JavaScript */
     opacity: 0;
 }
 
+div#main-bar p {
+    color: whitesmoke;
+}
+
+div#main-bar span {
+    color: #ed2727;
+    font-weight: 900;
+}
+
+div#main-bar p {
+    color: white;
+}
+
+span#date {
+    margin-left: auto;
+}

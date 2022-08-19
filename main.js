@@ -1,5 +1,5 @@
 const main = document.querySelector('#main');
-const mainBar = document.querySelector('#main-bar');
+const mainBar = document.querySelector('div#main-bar');
 
 // Gets image of the day
 function getIOD () {
@@ -21,11 +21,11 @@ function displayIOD(data) {
 function displayBarIOD(data) {
   const title = document.createElement('span');
   title.id = 'title';
-  title.textContent = data.title;
+  title.textContent = `Title: ${data.title} | `;
   
   const date = document.createElement('span');
   date.id = 'date';
-  title.textContent = data.date;
+  date.textContent = `Image Date: ${data.date}`;
   
   const description = document.createElement('p');
   description.id = 'description';
