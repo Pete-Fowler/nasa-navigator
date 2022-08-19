@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css?family=Silkscreen&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Chakra+Petch&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Rajdhani&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
+
+/* font is totally okay to change, just been experimenting with different styles */
+
+body {
+    background-color: black;
+    font-family: "Press Start 2P";
+    font-weight: 100;
+
+    
+}
+
+
+
+h1 {
+    color:azure;
+    font-size: 85px;    
+}
+
+h2 {
+    color:azure;
+}
+
+h3 {
+    color:azure;
+}
+
+h4 {
+    color:azure;
+}
+
+h5 {
+    color:azure;
+}
+
+form {
+    background-color: transparent;
+    
+};
+
+
+input[type=text] {
+    width: 30%;
+    -webkit-transition: width 0.15s ease-in-out;
+    transition: width 0.15s ease-in-out;
+ }
+
+
+
+.nasaSearchBar {
+text-align: center;
+height: 46px;
+border-radius: 48px;
+/* border: 0.5px solid lightgrey; */
+width: 80%;
+padding-right: 40px;
+padding-left: 10px;
+background-color: white;
+
+}
+
+
+
+.dailyImage {
+    text-align: center;
+}
+
+
+.nav {
+    margin-top: 2%;
+    text-align: center;
+}
+
+.header {
+    text-align: center;
+    margin-top: 3%;
+}
+
+#carousel {
+    text-align: center;
+}
+
+.carouselItems {
+    text-align: center;
+}
+
+.roverContainer {
+    text-align: center;
+    color:azure;
+    margin-top: 5%;
+    font-size: small;
+
+}
