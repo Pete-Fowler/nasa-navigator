@@ -5,9 +5,25 @@
 ## Data Shape
 
 ## Endpoints
+base:
+GET /
+GET /
 
-- Create one page app 
-    - [] 
+
+- As a user I can
+    - [] browse a one page directory of images and data
+    - [] user will be able to click buttons on a nav bar to toggle through queried data
+    - [] view a list of near earth objects and their respective data
+
+<!-- - Create one page app 
+    - [] avoid including redirects
+    - [] use 3 unique event listeners
+    - [] use 3 unique callback functions
+    - [] use one instance of array iterations
+
+    - [] github repo
+    - [] 1-2 sentence pitch
+    - [] create and expore wireframes
 
 
 Your entire app must run on a single page. There should be NO redirects. In other words, your project will contain a single HTML file.
@@ -26,5 +42,3 @@ Lastly, add your pitch, user stories, and wireframe images to your readme file, 
 The Interaction Design FoundationThe Interaction Design Foundation
 9 Free-to-Use Wireframing Tools
 Whether you prefer browser-based apps or offline desktop apps, have a big project on hand or just need to collaborate and share your work, there's a free wireframing tool for you to choose from! (65 kB)
-Topics
-User Experience (UX) Design, User Interface Design, Wireframing
