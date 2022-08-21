@@ -7,3 +7,6 @@ The user will be able to:
   - View the astronomy image of the day
   - Navigate between various data sources in the API such as MARS images and      asteroids / near earth objects
   - Enter a search term into a form field which will search the NASA images and video library and display a result on the page.
+
+Page layout:
+  ![Page layout](./assets/layout.jpg)

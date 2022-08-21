@@ -6,11 +6,10 @@ expand.addEventListener('mouseover', displayDetails);
 expand.addEventListener('mouseout', hideDetails);
 
 let localData;
-// api_key=k7cUJwa1gGIvD71WgzJVCjVdErEJWvQQX7aL9htz
-// api_key=DEMO_KEY
+
 // Gets image of the day
 function getIOD () {
-  return fetch(`https://api.nasa.gov/planetary/apod?api_key=k7cUJwa1gGIvD71WgzJVCjVdErEJWvQQX7aL9htz`)
+  return fetch(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY`)
   .then(res => res.json())
   .then(data => {
     console.log(data);
