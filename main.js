@@ -1,5 +1,6 @@
 const main = document.querySelector('#main');
 const mainBar = document.querySelector('div#main-bar');
+const homeButton = document.querySelector("#home");
 
 const expand = document.querySelector('#expand');
 expand.addEventListener('mouseover', displayDetailsIOD);
@@ -7,14 +8,11 @@ expand.addEventListener('mouseout', hideDetailsIOD);
 
 currentView = document.querySelector("#currentViewBox p");
 
-// const expand = document.querySelector('#expand');
-// expand.addEventListener('mouseover', displayRoverDetails);
-// expand.addEventListener('mouseout', hideRoverDetails);
-
-
-
 let localData;
 let localMarsData;
+
+
+homeButton.addEventListener ("click",() => displayIOD(localData));
 
 // Gets image of the day
 function getIOD () {
@@ -29,6 +27,7 @@ function getIOD () {
 
 // Displays image of the day in main section
 function displayIOD(data) {
+  main.textContent = ""
   if(data.media_type === 'image') {
     main.setAttribute('style', `background: url(${data.url}`);
   }
