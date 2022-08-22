@@ -20,6 +20,7 @@ expand.addEventListener('mouseover', displayDetails);
 expand.addEventListener('mouseout', hideDetails);
 
 let localMarsData;
+let localData;
 
 // Search images API
 function search(string) {
@@ -60,6 +61,7 @@ function getIOD () {
   .then(res => res.json())
   .then(data => {
     console.log(data);
+    localData = data;
     displayIOD(data);
   });
 }
@@ -83,22 +85,6 @@ function displayIOD(data) {
 // Adds data to populate main-bar at the bottom of the image and fades it in
 function displayDetails() {
   mainBar.style.opacity = 0;
-
-  // const title = document.createElement('span');
-  // title.id = 'title';
-  // title.textContent = `Title: ${localData.title} | `;
-  
-  // const date = document.createElement('span');
-  // date.id = 'date';
-  // date.textContent = `Image Date: ${localData.date}`;
-  
-  // const description = document.createElement('p');
-  // description.id = 'description';
-  // description.textContent = localData.explanation;
-
-  // Append new elements to DOM and fades in the main bar by removing the 
-  // CSS class .faded-out (which has set the element's opacity to 0)
-  // mainBar.append(title, date, description);
  
   mainBar.classList.remove('faded-out');
   mainBar.style.opacity = .6;
