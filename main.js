@@ -111,7 +111,7 @@ getIOD();
 
 
 function getMars() {
-  return fetch("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&camera=mast&api_key=DEMO_KEY")
+  return fetch("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&camera=navcam&api_key=DEMO_KEY")
   .then(res => res.json())
   .then(data => {
     localMarsData = {...data};
@@ -126,15 +126,15 @@ function displayMars(data) {
   card.className = "mars-card"
   let marsImage = document.createElement("img")
   marsImage.className = "mars-image"
-  element = Math.round(Math.random() * 838)
+  element = Math.round(Math.random() * 9)
   // main.setAttribute("style", `background: url(${data.photos[element].img_src}`)
-  marsImage.src = data.photos[element].img_src
+  marsImage.src = data.photos[element].img_src;
+  main.append(card)
+  
   roverName = data.photos[element].rover.name
   currentView.textContent = `Mars images captured by the rover ${roverName}`
 
-  card.append(marsImage)
-  main.append(card)
-  
+  card.append(marsImage)  
   }
 
 
