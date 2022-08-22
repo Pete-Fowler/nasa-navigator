@@ -20,7 +20,15 @@ function getIOD () {
 
 // Displays image of the day in main section
 function displayIOD(data) {
-  main.setAttribute('style', `background: url(${data.url}`);
+  if(data.media_type === 'image') {
+    main.setAttribute('style', `background: url(${data.url}`);
+  }
+  else if(data.media_type === 'video') {
+    const video = document.createElement('iframe');
+    video.src = data.url;
+    video.setAttribute('style', "width=100%");
+    main.append(video);
+  }
 }
 
 // Adds data to populate main-bar at the bottom of the image and fades it in
