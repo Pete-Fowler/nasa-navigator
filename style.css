@@ -30,6 +30,7 @@ body {
     grid-area: nav;
 }
 
+
 h1 {
     font-family: Ubuntu mono;
     color: #3f3fff;
@@ -79,24 +80,21 @@ button:hover {
     border: 2px solid white;
 }
 
+
+
+#main img {
+    border-radius: 15px;
+}
+/* 
 .mars-card {
-    margin-top: 10%;
-    width: 350px;
-    max-height: 350px;
-    display: flex;
-    background-color: rgba(180, 180, 180, 0.409);
-    border-radius: 10px;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 3px 3px 4px 2px rgb(118, 120, 238);
+
+    border-radius: 15px;
     overflow: hidden;
-    background-size: contain;
-
 }
 
-.mars-card img {
-    height: 100%;
-}
+.mars-image {
+
+} */
 
 #main {
     display: flex;
@@ -108,11 +106,14 @@ button:hover {
     width: 100%;
     height: 100%;
     z-index: 5;
-    padding: 10px;
+    padding: 0px;
     margin: 0;
     transition: .4s;
     flex-wrap: wrap;
+    background-size: cover;
     justify-content: center;
+    overflow: hidden;
+
 }
 
 iframe {
