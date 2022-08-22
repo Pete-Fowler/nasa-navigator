@@ -110,14 +110,18 @@ function getMars() {
 
 function displayMars(data) {
   main.textContent = ""
+  card = document.createElement("div")
+  card.className = "mars-card"
   let marsImage = document.createElement("img")
+  marsImage.className = "mars-image"
   element = Math.round(Math.random() * 838)
   // main.setAttribute("style", `background: url(${data.photos[element].img_src}`)
   marsImage.src = data.photos[element].img_src
   roverName = data.photos[element].rover.name
   currentView.textContent = `Mars images captured by the rover ${roverName}`
 
-  main.append(marsImage)
+  card.append(marsImage)
+  main.append(card)
   
   }
 

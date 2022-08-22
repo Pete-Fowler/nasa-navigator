@@ -30,6 +30,7 @@ body {
     grid-area: nav;
 }
 
+
 h1 {
     font-family: Ubuntu mono;
     color: #3f3fff;
@@ -84,6 +85,23 @@ button:hover {
 #main img {
     height: 100%;
     width: 100%;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: 15px;
+}
+
+.mars-card {
+    background-color: #3f3fff;
+    padding: 10px;
+    border-radius: 15px;
+    height: 400px;
+    overflow: hidden;
+}
+
+.mars-image {
+
 }
 
 #main {
