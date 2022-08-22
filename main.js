@@ -61,3 +61,10 @@ function hideDetails() {
 }
 
 getIOD();
+
+//getMars
+
+//displayMars
+
+
+
