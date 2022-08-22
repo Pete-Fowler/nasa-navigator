@@ -72,7 +72,7 @@ getIOD();
 //new additions to randomize elements
 
 const randomArray = [];
-for (let i=0, j=3; i<j; i++) {
+for (let i=0, j=1; i<j; i++) {
     randomArray.push(Math.round(Math.random() * 838))
 }
 console.log(randomArray)
@@ -92,11 +92,9 @@ function displayMars(data) {
   for (const element of randomArray) {
     // const marsImage = document.createElement("img")
     const card = document.createElement('div')
-    const marsRover = document.createElement("h2")
+    // const marsRover = document.createElement("h2")
     card.className = "mars-card"
     // marsImage.src = data.photos[element].img_src
-    card.setAttribute("style", "background-size: contain")
-    card.setAttribute("style", "  background-repeat: no-repeat")
     card.setAttribute("style", `background: url(${data.photos[element].img_src}`)
     // marsRover.textContent = data.photos[element].earth_date
     roverName = data.photos[element].rover.name
