@@ -78,18 +78,40 @@ button:hover {
     border: 2px solid white;
 }
 
+.mars-card {
+    width: 350px;
+    max-height: 350px;
+    display: flex;
+    background-color: rgba(180, 180, 180, 0.409);
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 3px 3px 4px 2px rgb(118, 120, 238);
+    overflow: hidden;
+    
+}
+
+.mars-card img {
+    height: 90%;
+}
+
 #main {
     display: flex;
+    gap: 25px;
     position: relative;
-    background: darkgrey;
+    background: black;
     background-size: cover;
     grid-area:  main;
     width: 100%;
     height: 100%;
     z-index: 5;
-    padding: 0;
+    padding: 10px;
     margin: 0;
     transition: .4s;
+    flex-wrap: wrap;
+    justify-content: center;
+
+
 }
 
 iframe {
