@@ -81,8 +81,9 @@ button:hover {
 
 
 
-.mars-card img {
+#main img {
     height: 100%;
+    width: 100%;
 }
 
 #main {
@@ -99,14 +100,9 @@ button:hover {
     margin: 0;
     transition: .4s;
     flex-wrap: wrap;
-<<<<<<< HEAD
     background-size: cover;
-    /* justify-content: center; */
-
-
-=======
     justify-content: center;
->>>>>>> 91de51d0b162f99f7be12be15c0031e48e786131
+
 }
 
 iframe {
