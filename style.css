@@ -78,6 +78,16 @@ button:hover {
     border: 2px solid white;
 }
 
+.mars-card {
+    max-width: 300px;
+    display: flex;
+    align-items: center;
+}
+
+.mars-card img {
+    width: 90%;
+}
+
 #main {
     display: flex;
     position: relative;
@@ -90,6 +100,7 @@ button:hover {
     padding: 0;
     margin: 0;
     transition: .4s;
+    flex-wrap: wrap;
 }
 
 iframe {

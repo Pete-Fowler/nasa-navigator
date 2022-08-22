@@ -63,27 +63,28 @@ function hideDetails() {
 getIOD();
 
 function getMars() {
-return fetch("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&camera=mast&page=1&api_key=DEMO_KEY")
-.then(res => res.json())
-.then(data => {
-  console.log(data);
-  displayMars(data);
-  localMarsData = {...data};
+  return fetch("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&camera=mast&page=1&api_key=DEMO_KEY")
+  .then(res => res.json())
+  .then(data => {
+    console.log(data);
+    displayMars(data);
+    localMarsData = {...data};
 
-})}
+  })
+}
 
 function displayMars(data) {
-const card = document.createElement('div')
-const marsImage = document.createElement("img")
-card.className = "mars-card"
+  main.textContent = ""
+  for (let i=0; i<7; i++) {
+    const card = document.createElement('div')
+    const marsImage = document.createElement("img")
+    card.className = "mars-card"
+    marsImage.src = data.photos[i].img_src
 
-marsImage.src = data.photos[0].img_src
+    card.append(marsImage)
+    main.append(card)
 
-main.textContent = ""
-card.append(marsImage)
-main.append(card)
-
-
+  }
 }
 
 marsButton = document.querySelector("#mars");
