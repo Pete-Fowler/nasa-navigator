@@ -12,11 +12,13 @@ marsButton.addEventListener("click", getMars);
 
 const currentView = document.querySelector("#currentViewBox p");
 const mainBar = document.querySelector('div#main-bar');
+const title = document.querySelector('#title');
+const description = document.querySelector('#description');
 
 const expand = document.querySelector('#expand');
+expand.addEventListener('mouseover', displayDetails);
+expand.addEventListener('mouseout', hideDetails);
 
-
-let localData;
 let localMarsData;
 
 // Search images API
@@ -46,19 +48,9 @@ function displaySearchResults(data) {
   }
 
 function displaySearchDetail(object) {
-  console.log(mainBar.textContent);
-  mainBar.style.opacity = 0;
-  mainBar.textContent = '';
-
-  const title = document.createElement('span');
-  title.id = 'title';
+  // mainBar.replaceWith(mainBar.cloneNode(true));
   title.textContent = object.title;
-  const description = document.createElement('p')
-  description.id = 'description';
   description.textContent = object.description;
-  mainBar.append(title, description);
-  mainBar.classList.remove('faded-out');
-  mainBar.style.opacity = .6;
 }
 
 // Gets image of the day
@@ -68,15 +60,12 @@ function getIOD () {
   .then(data => {
     console.log(data);
     displayIOD(data);
-    localData = {...data};
   });
 }
 
 // Displays image of the day in main section
 function displayIOD(data) {
   main.textContent = '';
-  expand.addEventListener('mouseover', displayDetailsIOD);
-  expand.addEventListener('mouseout', hideDetailsIOD);
   if(data.media_type === 'image') {
     main.setAttribute('style', `background: url(${data.url}`);
   }
@@ -85,34 +74,36 @@ function displayIOD(data) {
     video.src = data.url;
     main.append(video);
   }
-  
+  console.log(title);
+  title.textContent = `Title: ${data.title} | Image Date: ${data.date}`;
+  description.textContent = data.explanation;
 }
 
 // Adds data to populate main-bar at the bottom of the image and fades it in
-function displayDetailsIOD() {
+function displayDetails() {
   mainBar.style.opacity = 0;
-  mainBar.textContent = '';
 
-  const title = document.createElement('span');
-  title.id = 'title';
-  title.textContent = `Title: ${localData.title} | `;
+  // const title = document.createElement('span');
+  // title.id = 'title';
+  // title.textContent = `Title: ${localData.title} | `;
   
-  const date = document.createElement('span');
-  date.id = 'date';
-  date.textContent = `Image Date: ${localData.date}`;
+  // const date = document.createElement('span');
+  // date.id = 'date';
+  // date.textContent = `Image Date: ${localData.date}`;
   
-  const description = document.createElement('p');
-  description.id = 'description';
-  description.textContent = localData.explanation;
+  // const description = document.createElement('p');
+  // description.id = 'description';
+  // description.textContent = localData.explanation;
 
   // Append new elements to DOM and fades in the main bar by removing the 
   // CSS class .faded-out (which has set the element's opacity to 0)
-  mainBar.append(title, date, description);
+  // mainBar.append(title, date, description);
+ 
   mainBar.classList.remove('faded-out');
   mainBar.style.opacity = .6;
 }
 
-function hideDetailsIOD() {
+function hideDetails() {
   mainBar.style.opacity = 0;
   mainBar.classList.add('faded-out');
 }
@@ -131,7 +122,7 @@ function getMars() {
 }
 
 function displayMars(data) {
-  main.textContent = ""
+  main.textContent = "";
   card = document.createElement("div")
   card.className = "mars-card"
   let marsImage = document.createElement("img")
