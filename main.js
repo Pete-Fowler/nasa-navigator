@@ -10,7 +10,6 @@ currentView = document.querySelector("#currentViewBox p");
 
 let localData;
 let localMarsData;
-let randomArray;
 
 
 homeButton.addEventListener ("click",() => displayIOD(localData));
@@ -70,24 +69,22 @@ function hideDetailsIOD() {
 
 getIOD();
 
-// function getRandomInt(max) {
-//   return Math.floor(Math.random() * max)}
-// console.log(getRandomInt(830));
+//new additions to randomize elements
 
+let randomArray = [];
+for (let i=0, j=6; i<j; i++) {
+    randomArray.push(Math.round(Math.random() * 838))
+}
+console.log(randomArray)
 
 function getMars() {
   return fetch("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&camera=mast&api_key=DEMO_KEY")
   .then(res => res.json())
   .then(data => {
-    console.log(data);
-    displayMars(data);
     localMarsData = {...data};
     // randomMars(data);
-    let randomArray = [];
-    for (let i=0, j=6; i<j; i++) {
-        randomArray.push(Math.round(Math.random() * 838))
-    }
-    console.log(randomArray)
+    console.log(data);
+    displayMars(data);
   })
 }
 
@@ -95,7 +92,6 @@ function displayMars(data) {
   main.textContent = ""
   for (let i=0; i<6; i++) {
     const card = document.createElement('div')
-    // const marsImage = document.createElement("img")
     const marsRover = document.createElement("h3")
     card.className = "mars-card"
     card.setAttribute("style", `background: url(${data.photos[i].img_src})`)
