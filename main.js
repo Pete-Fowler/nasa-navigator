@@ -29,7 +29,7 @@ function search(string) {
   .then(data => {
     console.log(data);
     displaySearchResults(data);
-    currentView.textContent = 'string';
+    currentView.textContent = string;
   });
 }
 
@@ -96,7 +96,6 @@ function hideDetails() {
 }
 
 getIOD();
-
 
 function getMars() {
   return fetch("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&camera=navcam&api_key=DEMO_KEY")
