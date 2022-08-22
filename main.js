@@ -28,6 +28,7 @@ function search(string) {
   .then(data => {
     console.log(data);
     displaySearchResults(data);
+    currentView.textContent = 'string';
   });
 }
 
@@ -129,8 +130,8 @@ function displayMars(data) {
   // main.setAttribute("style", `background: url(${data.photos[element].img_src}`)
   marsImage.src = data.photos[element].img_src;
   
-  roverName = data.photos[element].rover.name
-  currentView.textContent = `Mars images captured by the rover ${roverName}`
+  roverName = data.photos[element].rover.name;
+  currentView.textContent = `Mars images captured by the rover ${roverName}`;
 
   main.append(marsImage)  
   }
