@@ -1,5 +1,4 @@
 const main = document.querySelector('#main');
-const mainBar = document.querySelector('div#main-bar');
 const searchInput = document.querySelector('#searchInput');
 const submitButton = document.querySelector('#submit');
 submitButton.addEventListener('click', () => search(searchInput.value));
@@ -8,6 +7,7 @@ homeButton.addEventListener ("click",() => displayIOD(localData));
 const marsButton = document.querySelector("#mars");
 marsButton.addEventListener("click", getMars);
 const currentView = document.querySelector("#currentViewBox p");
+const mainBar = document.querySelector('#main-bar');
 const expand = document.querySelector('#expand');
 expand.addEventListener('mouseover', displayDetailsIOD);
 expand.addEventListener('mouseout', hideDetailsIOD);
@@ -54,8 +54,7 @@ function getIOD () {
 
 // Displays image of the day in main section
 function displayIOD(data) {
-  main.textContent = "";
-
+  main.textContent = '';
   if(data.media_type === 'image') {
     main.setAttribute('style', `background: url(${data.url}`);
   }
@@ -64,6 +63,7 @@ function displayIOD(data) {
     video.src = data.url;
     main.append(video);
   }
+  
 }
 
 // Adds data to populate main-bar at the bottom of the image and fades it in
