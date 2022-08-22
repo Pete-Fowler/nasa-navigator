@@ -80,6 +80,7 @@ button:hover {
 }
 
 .mars-card {
+    margin-top: 10%;
     width: 350px;
     max-height: 350px;
     display: flex;
@@ -89,11 +90,12 @@ button:hover {
     align-items: center;
     box-shadow: 3px 3px 4px 2px rgb(118, 120, 238);
     overflow: hidden;
-    
+    background-size: contain;
+
 }
 
 .mars-card img {
-    height: 90%;
+    height: 100%;
 }
 
 #main {

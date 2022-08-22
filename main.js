@@ -93,31 +93,44 @@ function hideDetailsIOD() {
 
 getIOD();
 
+//new additions to randomize elements
+
+const randomArray = [];
+for (let i=0, j=3; i<j; i++) {
+    randomArray.push(Math.round(Math.random() * 838))
+}
+console.log(randomArray)
+
 function getMars() {
-  return fetch("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&camera=mast&page=29&api_key=DEMO_KEY")
+  return fetch("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&camera=mast&api_key=DEMO_KEY")
   .then(res => res.json())
   .then(data => {
+    localMarsData = {...data};
     console.log(data);
     displayMars(data);
-    localMarsData = {...data};
-
   })
 }
 
 function displayMars(data) {
   main.textContent = ""
-  for (let i=0; i<6; i++) {
-    const card = document.createElement('div')
+  for (const element of randomArray) {
     // const marsImage = document.createElement("img")
-    const marsRover = document.createElement("h3")
+    const card = document.createElement('div')
+    const marsRover = document.createElement("h2")
     card.className = "mars-card"
-    card.setAttribute("style", `background: url(${data.photos[i].img_src})`)
-    roverName = data.photos[i].rover.name
+    // marsImage.src = data.photos[element].img_src
+    card.setAttribute("style", "background-size: contain")
+    card.setAttribute("style", "  background-repeat: no-repeat")
+    card.setAttribute("style", `background: url(${data.photos[element].img_src}`)
+    // marsRover.textContent = data.photos[element].earth_date
+    roverName = data.photos[element].rover.name
     currentView.textContent = `Mars images captured by the rover ${roverName}`
-    main.append(marsRover)
+    // card.append(marsImage)
+    // card.append(marsRover)
     main.append(card)
    }
 }
+
 
 marsButton = document.querySelector("#mars");
 
