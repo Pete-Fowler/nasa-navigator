@@ -9,7 +9,7 @@ let localData;
 
 // Gets image of the day
 function getIOD () {
-  return fetch(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY`)
+  return fetch(`https://api.nasa.gov/planetary/apod?api_key=k7cUJwa1gGIvD71WgzJVCjVdErEJWvQQX7aL9htz`)
   .then(res => res.json())
   .then(data => {
     console.log(data);
@@ -26,7 +26,6 @@ function displayIOD(data) {
   else if(data.media_type === 'video') {
     const video = document.createElement('iframe');
     video.src = data.url;
-    video.setAttribute('style', "width=100%");
     main.append(video);
   }
 }
