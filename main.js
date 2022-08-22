@@ -44,13 +44,12 @@ function displaySearchResults(data) {
     .then(res => res.json())
     .then(details => {
       console.log(details);
-      main.setAttribute('style', `background: url(${details.collection.items[0].href}`);
+      main.setAttribute('style', `background-image: url(${details.collection.items[0].href}`);
       displaySearchDetail(object);
     });    
   }
 
 function displaySearchDetail(object) {
-  // mainBar.replaceWith(mainBar.cloneNode(true));
   title.textContent = object.title;
   description.textContent = object.description;
 }
@@ -70,7 +69,7 @@ function getIOD () {
 function displayIOD(data) {
   main.textContent = '';
   if(data.media_type === 'image') {
-    main.setAttribute('style', `background: url(${data.url}`);
+    main.setAttribute('style', `background-image: url(${data.url}`);
   }
   else if(data.media_type === 'video') {
     const video = document.createElement('iframe');
@@ -109,16 +108,16 @@ function getMars() {
 
 function displayMars(data) {
   main.textContent = "";
-  let marsImage = document.createElement("img")
-  marsImage.className = "mars-image"
+  // let marsImage = document.createElement("img")
+  // marsImage.className = "mars-image"
   element = Math.round(Math.random() * 9)
-  // main.setAttribute("style", `background: url(${data.photos[element].img_src}`)
+  main.setAttribute("style", `background-image: url(${data.photos[element].img_src}`)
   marsImage.src = data.photos[element].img_src;
   
   roverName = data.photos[element].rover.name;
   currentView.textContent = `Mars images captured by the rover ${roverName}`;
 
-  main.append(marsImage)  
+  // main.append(marsImage)  
   }
 
 
