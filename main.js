@@ -1,6 +1,10 @@
 const main = document.querySelector('#main');
 const mainBar = document.querySelector('div#main-bar');
+const searchInput = document.querySelector('#searchInput');
+const submitButton = document.querySelector('#submit');
+submitButton.addEventListener('click', () => search(searchInput.value));
 const homeButton = document.querySelector("#home");
+homeButton.addEventListener ("click",() => displayIOD(localData));
 
 const expand = document.querySelector('#expand');
 expand.addEventListener('mouseover', displayDetailsIOD);
@@ -11,8 +15,28 @@ currentView = document.querySelector("#currentViewBox p");
 let localData;
 let localMarsData;
 
+// Search images API
+function search(string) {
+  return fetch(`https://images-api.nasa.gov/search?q=${string}`)
+  .then(res => res.json())
+  .then(data => {
+    console.log(data);
+    displaySearchResults(data);
+  })
+  .catch(err => alert(err.message));
+}
 
-homeButton.addEventListener ("click",() => displayIOD(localData));
+function displaySearchResults(data) {
+  main.textContent = '';
+  if(data.collection.items[0].data[0].media_type === 'video') {
+    fetch(`https://images-api.nasa.gov/asset/${data.collection.items[0].data[0].nasa_id}`)
+    .then(res => res.json())
+    .then(details => console.log(details));    
+    // const video = document.createElement('iframe');
+    // video.src = data.url;
+    // main.append(video);
+  }
+}
 
 // Gets image of the day
 function getIOD () {

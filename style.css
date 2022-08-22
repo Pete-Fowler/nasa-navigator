@@ -52,6 +52,7 @@ h1 {
 }
 
 #searchInput {
+    color: black;
     padding: 0px;
     margin: 5px;
     height: 25px;
