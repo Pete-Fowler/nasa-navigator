@@ -52,6 +52,7 @@ h1 {
 }
 
 #searchInput {
+    color: black;
     padding: 0px;
     margin: 5px;
     height: 25px;
@@ -98,10 +99,14 @@ button:hover {
     margin: 0;
     transition: .4s;
     flex-wrap: wrap;
+<<<<<<< HEAD
     background-size: cover;
     /* justify-content: center; */
 
 
+=======
+    justify-content: center;
+>>>>>>> 91de51d0b162f99f7be12be15c0031e48e786131
 }
 
 iframe {
