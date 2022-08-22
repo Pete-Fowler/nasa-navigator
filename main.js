@@ -96,12 +96,13 @@ function displayMars(data) {
     card.className = "mars-card"
     // marsImage.src = data.photos[element].img_src
     card.setAttribute("style", "background-size: contain")
+    card.setAttribute("style", "  background-repeat: no-repeat")
     card.setAttribute("style", `background: url(${data.photos[element].img_src}`)
-    marsRover.textContent = data.photos[element].rover.name
+    // marsRover.textContent = data.photos[element].earth_date
     roverName = data.photos[element].rover.name
     currentView.textContent = `Mars images captured by the rover ${roverName}`
     // card.append(marsImage)
-    card.append(marsRover)
+    // card.append(marsRover)
     main.append(card)
    }
 }
