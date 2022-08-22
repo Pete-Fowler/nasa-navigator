@@ -79,6 +79,7 @@ button:hover {
 }
 
 #main {
+    display: flex;
     position: relative;
     background: darkgrey;
     background-size: cover;
@@ -91,11 +92,15 @@ button:hover {
     transition: .4s;
 }
 
+iframe {
+    width: 100%;
+}
+
 div#main-bar {
     font-size: .9rem;
     background-color: black;
     width: calc(100% - 20px);
-    max-height: 175px;
+    max-height: 300px;
     position: absolute;
     bottom: 0px;
     z-index: 10;
@@ -116,8 +121,8 @@ class is removed or added back in with JavaScript */
 #expand {
     position: absolute;
     bottom: 0px;
-    margin-left: 50%;
-    margin-right: 50%;
+    left: 50%;
+    right: 50%;
     height: 40px;
     border-radius: 5px;
     background: black;
