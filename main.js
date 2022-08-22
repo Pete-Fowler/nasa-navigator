@@ -37,9 +37,21 @@ function displaySearchResults(data) {
     .then(details => {
       console.log(details);
       main.setAttribute('style', `background: url(${details.collection.items[0].href}`);
-      console.log(object); // use object.title and object.description
+      displaySearchDetail(object);
     });    
   }
+
+function displaySearchDetail(object) {
+  console.log(mainBar);
+  mainBar.textContent = '';
+  const title = document.createElement('span');
+  title.id = 'title';
+  title.textContent = object.title;
+  const description = document.createElement('p')
+  description.id = 'description';
+  description.textContent = object.description;
+  mainBar.append(title, description);
+}
 
 // Gets image of the day
 function getIOD () {
