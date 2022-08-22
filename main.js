@@ -112,7 +112,7 @@ function displayMars(data) {
   // marsImage.className = "mars-image"
   element = Math.round(Math.random() * 9)
   main.setAttribute("style", `background-image: url(${data.photos[element].img_src}`)
-  marsImage.src = data.photos[element].img_src;
+  // marsImage.src = data.photos[element].img_src;
   
   roverName = data.photos[element].rover.name;
   currentView.textContent = `Mars images captured by the rover ${roverName}`;
