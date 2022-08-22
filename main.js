@@ -1,13 +1,18 @@
 const main = document.querySelector('#main');
 const searchInput = document.querySelector('#searchInput');
+
 const submitButton = document.querySelector('#submit');
 submitButton.addEventListener('click', () => search(searchInput.value));
+
 const homeButton = document.querySelector("#home");
 homeButton.addEventListener ("click",() => displayIOD(localData));
+
 const marsButton = document.querySelector("#mars");
 marsButton.addEventListener("click", getMars);
+
 const currentView = document.querySelector("#currentViewBox p");
-const mainBar = document.querySelector('#main-bar');
+const mainBar = document.querySelector('div#main-bar');
+
 const expand = document.querySelector('#expand');
 expand.addEventListener('mouseover', displayDetailsIOD);
 expand.addEventListener('mouseout', hideDetailsIOD);
@@ -42,8 +47,10 @@ function displaySearchResults(data) {
   }
 
 function displaySearchDetail(object) {
-  console.log(mainBar);
+  console.log(mainBar.textContent);
+  mainBar.style.opacity = 0;
   mainBar.textContent = '';
+
   const title = document.createElement('span');
   title.id = 'title';
   title.textContent = object.title;
@@ -51,6 +58,8 @@ function displaySearchDetail(object) {
   description.id = 'description';
   description.textContent = object.description;
   mainBar.append(title, description);
+  mainBar.classList.remove('faded-out');
+  mainBar.style.opacity = .6;
 }
 
 // Gets image of the day
