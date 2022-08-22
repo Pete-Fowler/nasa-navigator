@@ -22,21 +22,23 @@ function search(string) {
   .then(data => {
     console.log(data);
     displaySearchResults(data);
-  })
-  .catch(err => alert(err.message));
+  });
 }
 
 function displaySearchResults(data) {
   main.textContent = '';
-  if(data.collection.items[0].data[0].media_type === 'video') {
-    fetch(`https://images-api.nasa.gov/asset/${data.collection.items[0].data[0].nasa_id}`)
-    .then(res => res.json())
-    .then(details => console.log(details));    
-    // const video = document.createElement('iframe');
-    // video.src = data.url;
-    // main.append(video);
+  let i = 0;
+  while (data.collection.items[i].data[0].media_type !== 'image') {
+    i++;
   }
-}
+    fetch(`https://images-api.nasa.gov/asset/${data.collection.items[i].data[0].nasa_id}`)
+    .then(res => res.json())
+    .then(details => {
+      console.log(details);
+      main.setAttribute('style', `background: url(${details.collection.items[0].href}`);
+    });    
+    
+  }
 
 // Gets image of the day
 function getIOD () {
