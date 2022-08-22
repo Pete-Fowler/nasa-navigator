@@ -75,13 +75,14 @@ function getMars() {
 
 function displayMars(data) {
   main.textContent = ""
-  for (let i=0; i<7; i++) {
+  for (let i=0; i<9; i++) {
     const card = document.createElement('div')
-    const marsImage = document.createElement("img")
+    // const marsImage = document.createElement("img")
+    // const marsRover = document.createElement("h3")
     card.className = "mars-card"
-    marsImage.src = data.photos[i].img_src
+    card.setAttribute("style", `background: url(${data.photos[i].img_src})`)
 
-    card.append(marsImage)
+    // card.append(marsImage)
     main.append(card)
 
   }
