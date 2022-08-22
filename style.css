@@ -83,11 +83,13 @@ button:hover {
     max-height: 350px;
     display: flex;
     background-color: rgba(180, 180, 180, 0.409);
+    background-repeat: no-repeat;
     border-radius: 10px;
     justify-content: center;
     align-items: center;
     box-shadow: 3px 3px 4px 2px rgb(118, 120, 238);
     overflow: hidden;
+    
     
 }
 

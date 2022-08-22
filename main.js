@@ -71,7 +71,7 @@ getIOD();
 
 //new additions to randomize elements
 
-let randomArray = [];
+const randomArray = [];
 for (let i=0, j=6; i<j; i++) {
     randomArray.push(Math.round(Math.random() * 838))
 }
@@ -88,14 +88,14 @@ function getMars() {
   })
 }
 
-function displayMars(data) {
+function displayMars(data, randomArry) {
   main.textContent = ""
-  for (let i=0; i<6; i++) {
+  for (const element of randomArray) {
     const card = document.createElement('div')
     const marsRover = document.createElement("h3")
     card.className = "mars-card"
-    card.setAttribute("style", `background: url(${data.photos[i].img_src})`)
-    roverName = data.photos[i].rover.name
+    card.setAttribute("style", `background: url(${data.photos[element].img_src})`)
+    roverName = data.photos[element].rover.name
     currentView.textContent = `Mars images captured by the rover ${roverName}`
     main.append(marsRover)
     main.append(card)
