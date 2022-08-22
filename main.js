@@ -6,6 +6,7 @@ expand.addEventListener('mouseover', displayDetails);
 expand.addEventListener('mouseout', hideDetails);
 
 let localData;
+let localMarsData;
 
 // Gets image of the day
 function getIOD () {
@@ -61,9 +62,31 @@ function hideDetails() {
 
 getIOD();
 
-//getMars
+function getMars() {
+return fetch("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&camera=mast&page=1&api_key=DEMO_KEY")
+.then(res => res.json())
+.then(data => {
+  console.log(data);
+  displayMars(data);
+  localMarsData = {...data};
 
+})}
+
+function displayMars(data) {
+const card = document.createElement('div')
+const marsImage = document.createElement("img")
+card.className = "mars-card"
+
+marsImage.src = data.photos[0].img_src
+
+main.textContent = ""
+card.append(marsImage)
+main.append(card)
+
+
+}
+
+marsButton = document.querySelector("#mars");
+
+marsButton.addEventListener("click", getMars)
 //displayMars
-
-
-
