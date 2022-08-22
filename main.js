@@ -5,12 +5,12 @@ const submitButton = document.querySelector('#submit');
 submitButton.addEventListener('click', () => search(searchInput.value));
 const homeButton = document.querySelector("#home");
 homeButton.addEventListener ("click",() => displayIOD(localData));
-
+const marsButton = document.querySelector("#mars");
+marsButton.addEventListener("click", getMars);
+const currentView = document.querySelector("#currentViewBox p");
 const expand = document.querySelector('#expand');
 expand.addEventListener('mouseover', displayDetailsIOD);
 expand.addEventListener('mouseout', hideDetailsIOD);
-
-currentView = document.querySelector("#currentViewBox p");
 
 let localData;
 let localMarsData;
@@ -31,13 +31,14 @@ function displaySearchResults(data) {
   while (data.collection.items[i].data[0].media_type !== 'image') {
     i++;
   }
+    const object = data.collection.items[i].data[0];
     fetch(`https://images-api.nasa.gov/asset/${data.collection.items[i].data[0].nasa_id}`)
     .then(res => res.json())
     .then(details => {
       console.log(details);
       main.setAttribute('style', `background: url(${details.collection.items[0].href}`);
+      console.log(object); // use object.title and object.description
     });    
-    
   }
 
 // Gets image of the day
@@ -53,7 +54,8 @@ function getIOD () {
 
 // Displays image of the day in main section
 function displayIOD(data) {
-  main.textContent = ""
+  main.textContent = "";
+
   if(data.media_type === 'image') {
     main.setAttribute('style', `background: url(${data.url}`);
   }
@@ -133,8 +135,3 @@ function displayMars(data) {
    }
 }
 
-
-marsButton = document.querySelector("#mars");
-
-marsButton.addEventListener("click", getMars)
-//displayMars
