@@ -72,7 +72,7 @@ getIOD();
 //new additions to randomize elements
 
 const randomArray = [];
-for (let i=0, j=6; i<j; i++) {
+for (let i=0, j=3; i<j; i++) {
     randomArray.push(Math.round(Math.random() * 838))
 }
 console.log(randomArray)
@@ -82,22 +82,26 @@ function getMars() {
   .then(res => res.json())
   .then(data => {
     localMarsData = {...data};
-    // randomMars(data);
     console.log(data);
     displayMars(data);
   })
 }
 
-function displayMars(data, randomArry) {
+function displayMars(data) {
   main.textContent = ""
   for (const element of randomArray) {
+    // const marsImage = document.createElement("img")
     const card = document.createElement('div')
-    const marsRover = document.createElement("h3")
+    const marsRover = document.createElement("h2")
     card.className = "mars-card"
-    card.setAttribute("style", `background: url(${data.photos[element].img_src})`)
+    // marsImage.src = data.photos[element].img_src
+    card.setAttribute("style", "background-size: contain")
+    card.setAttribute("style", `background: url(${data.photos[element].img_src}`)
+    marsRover.textContent = data.photos[element].rover.name
     roverName = data.photos[element].rover.name
     currentView.textContent = `Mars images captured by the rover ${roverName}`
-    main.append(marsRover)
+    // card.append(marsImage)
+    card.append(marsRover)
     main.append(card)
    }
 }
