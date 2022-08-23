@@ -82,6 +82,7 @@ function search(string) {
     console.log(data);
     displaySearchResults(data);
     currentView.textContent = string;
+    searchInput.value = '';
   });
 }
 
@@ -112,7 +113,7 @@ function displaySearchDetail(object) {
 // Show / hide modal window
 function displayDetails() {
   mainBar.style.opacity = 0;
- 
+
   mainBar.classList.remove('faded-out');
   mainBar.style.opacity = .6;
 }
