@@ -107,7 +107,7 @@ button:hover {
     margin: 0;
     flex-wrap: wrap;
     background-size: cover;
-    background-position: center center;
+    background-position: center;
     justify-content: center;
     overflow: hidden;
 
