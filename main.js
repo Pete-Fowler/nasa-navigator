@@ -96,11 +96,15 @@ function search(string) {
 function displaySearchResults(data) {
   main.textContent = '';
   let i = 0;
-  while (data.collection.items[i].data[0].media_type !== 'image') {
-    i++;
-  }
-    const object = data.collection.items[i].data[0];
-    fetch(`https://images-api.nasa.gov/asset/${data.collection.items[i].data[0].nasa_id}`)
+  // while (data.collection.items[i].data[0].media_type !== 'image') {
+  //   i++;
+  // }
+  const array = data.collection.items;
+  const newArr = array.filter(object => {
+    return object.data[0].media_type === 'image';
+  });
+  const object = newArr[0].data[0];
+  fetch(`https://images-api.nasa.gov/asset/${newArr[0].data[0].nasa_id}`)
     .then(res => res.json())
     .then(details => {
       console.log(details);
@@ -111,7 +115,6 @@ function displaySearchResults(data) {
 
 function displaySearchDetail(object) {
   title.textContent = object.title;
-
   description.textContent = object.description;
 }
 
