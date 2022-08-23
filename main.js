@@ -53,7 +53,7 @@ function displayIOD(data) {
 
 // Mars button functions
 function getMars() {
-  return fetch("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&camera=navcam&api_key=DEMO_KEY")
+  return fetch("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&camera=navcam&api_key=k7cUJwa1gGIvD71WgzJVCjVdErEJWvQQX7aL9htz")
   .then(res => res.json())
   .then(data => {
     localMarsData = {...data};
