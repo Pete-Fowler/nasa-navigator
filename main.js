@@ -17,6 +17,7 @@ const description = document.querySelector('#description');
 
 const expand = document.querySelector('#expand');
 
+let last = NaN;
 let localMarsData;
 let localData;
 
@@ -67,7 +68,12 @@ function displayMars(data) {
   expand.setAttribute('style', 'opacity: 0');
   expand.removeEventListener('mouseover', displayDetails);
   expand.removeEventListener('mouseout', hideDetails);
-  element = Math.round(Math.random() * 9)
+  
+  let element;
+  do {
+    element = Math.round(Math.random() * 9);
+  } while(element === last || element === NaN);
+  last = element;
   main.setAttribute("style", `background-image: url(${data.photos[element].img_src}`)
   
   roverName = data.photos[element].rover.name;
