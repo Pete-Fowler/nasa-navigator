@@ -65,9 +65,6 @@ function getMars() {
 
 function displayMars(data) {
   main.textContent = "";
-  expand.setAttribute('style', 'opacity: 0');
-  expand.removeEventListener('mouseover', displayDetails);
-  expand.removeEventListener('mouseout', hideDetails);
   
   let element;
   do {
@@ -78,7 +75,9 @@ function displayMars(data) {
   
   roverName = data.photos[element].rover.name;
   currentView.textContent = `Mars images captured by the rover ${roverName}`;
-  }
+  title.textContent = "NASA Mars Curiosity Rover"
+  description.textContent = "Part of NASA's Mars Science Laboratory mission, Curiosity is the largest and most capable rover ever sent to Mars. It launched November 26, 2011 and landed on Mars at 10:32 p.m. PDT on Aug. 5, 2012 (1:32 a.m. EDT on Aug. 6, 2012).Curiosity set out to answer the question: Did Mars ever have the right environmental conditions to support small life forms called microbes? Early in its mission, Curiosity's scientific tools found chemical and mineral evidence of past habitable environments on Mars. It continues to explore the rock record from a time when Mars could have been home to microbial life. Curiosity's large size allows it to carry an advanced kit of 10 science instruments. It has tools including 17 cameras, a laser to vaporize and study small pinpoint spots of rocks at a distance, and a drill to collect powdered rock samples. It hunts for special rocks that formed in water and/or have signs of organics." 
+}
 
 // Search images API functions
 function search(string) {
@@ -113,6 +112,7 @@ function displaySearchDetail(object) {
   expand.addEventListener('mouseover', displayDetails);
   expand.addEventListener('mouseout', hideDetails);
   title.textContent = object.title;
+
   description.textContent = object.description;
 }
 
