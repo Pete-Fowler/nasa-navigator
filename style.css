@@ -105,7 +105,6 @@ button:hover {
     z-index: 5;
     padding: 0px;
     margin: 0;
-    transition: .4s;
     flex-wrap: wrap;
     background-size: cover;
     justify-content: center;
