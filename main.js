@@ -49,7 +49,6 @@ function displayIOD(data) {
     video.src = data.url;
     main.append(video);
   }
-  console.log(title);
   title.textContent = `Title: ${data.title} | Image Date: ${data.date}`;
   description.textContent = data.explanation;
 }
@@ -67,14 +66,12 @@ function getMars() {
 
 function displayMars(data) {
   main.textContent = "";
-  
   let element;
   do {
     element = Math.round(Math.random() * 9);
   } while(element === last || element === NaN);
   last = element;
   main.setAttribute("style", `background-image: url(${data.photos[element].img_src}`)
-  
   roverName = data.photos[element].rover.name;
   currentView.textContent = `Mars images captured by the rover ${roverName}`;
   title.textContent = "NASA Mars Curiosity Rover";
