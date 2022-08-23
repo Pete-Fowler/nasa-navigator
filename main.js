@@ -88,7 +88,6 @@ function search(string) {
   .then(data => {
     console.log(data);
     displaySearchResults(data);
-    currentView.textContent = string;
     searchInput.value = '';
   });
 }
@@ -96,9 +95,6 @@ function search(string) {
 function displaySearchResults(data) {
   main.textContent = '';
   let i = 0;
-  // while (data.collection.items[i].data[0].media_type !== 'image') {
-  //   i++;
-  // }
   const array = data.collection.items;
   const newArr = array.filter(object => {
     return object.data[0].media_type === 'image';
@@ -114,6 +110,7 @@ function displaySearchResults(data) {
   }
 
 function displaySearchDetail(object) {
+  currentView.textContent = object.title;
   title.textContent = object.title;
   description.textContent = object.description;
 }
