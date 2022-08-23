@@ -119,7 +119,7 @@ iframe {
 div#main-bar {
     font-size: .9rem;
     background-color: black;
-    width: 64%;
+    width: 70%;
     right: 20px;
     bottom: 20px;
     max-height: 300px;
@@ -142,7 +142,7 @@ class is removed or added back in with JavaScript */
 #expand {
     position: absolute;
     bottom: 0px;
-    left: 62%;
+    left: 60%;
     height: 40px;
     border-radius: 5px;
     background: black;
@@ -155,7 +155,9 @@ div#main-bar p {
 }
 
 div#main-bar span {
-    color: #adadff;
+    font-family: Ubuntu mono;
+    font-size: 1.2rem;
+    color: #3f3fff;
     font-weight: 900;
 }
 
