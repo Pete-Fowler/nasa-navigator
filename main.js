@@ -68,32 +68,37 @@ function getMars() {
 }
 
 function displayMars(data) {
-  if(l === 0) {
-    let element;
-    do {
-      element = Math.round(Math.random() * 9);
-    } while(element === last || element === NaN);
-    last = element;
-    main.textContent = "";
-    main.setAttribute("style", `background-image: url(${data.photos[element].img_src}`)
-    roverName = data.photos[element].rover.name;
-    currentView.textContent = `Mars images captured by the rover ${roverName}`;
-    title.textContent = "NASA Mars Curiosity Rover";
-    description.textContent = "Part of NASA's Mars Science Laboratory mission, Curiosity is the largest and most capable rover ever sent to Mars. It launched November 26, 2011 and landed on Mars at 10:32 p.m. PDT on Aug. 5, 2012 (1:32 a.m. EDT on Aug. 6, 2012).Curiosity set out to answer the question: Did Mars ever have the right environmental conditions to support small life forms called microbes? Early in its mission, Curiosity's scientific tools found chemical and mineral evidence of past habitable environments on Mars. It continues to explore the rock record from a time when Mars could have been home to microbial life. Curiosity's large size allows it to carry an advanced kit of 10 science instruments. It has tools including 17 cameras, a laser to vaporize and study small pinpoint spots of rocks at a distance, and a drill to collect powdered rock samples. It hunts for special rocks that formed in water and/or have signs of organics.";
-    displayArrows();
-    marsArrowsListeners();
-  } else {
-    
-  }
+  do {
+    l = Math.round(Math.random() * 9);
+  } while(l === last || l === NaN);
+  last = l;
+  main.textContent = "";
+  main.setAttribute("style", `background-image: url(${data.photos[l].img_src}`);
+  roverName = data.photos[l].rover.name;
+  currentView.textContent = `Mars images captured by the rover ${roverName}`;
+  title.textContent = "NASA Mars Curiosity Rover";
+  description.textContent = "Part of NASA's Mars Science Laboratory mission, Curiosity is the largest and most capable rover ever sent to Mars. It launched November 26, 2011 and landed on Mars at 10:32 p.m. PDT on Aug. 5, 2012 (1:32 a.m. EDT on Aug. 6, 2012).Curiosity set out to answer the question: Did Mars ever have the right environmental conditions to support small life forms called microbes? Early in its mission, Curiosity's scientific tools found chemical and mineral evidence of past habitable environments on Mars. It continues to explore the rock record from a time when Mars could have been home to microbial life. Curiosity's large size allows it to carry an advanced kit of 10 science instruments. It has tools including 17 cameras, a laser to vaporize and study small pinpoint spots of rocks at a distance, and a drill to collect powdered rock samples. It hunts for special rocks that formed in water and/or have signs of organics.";
+  displayArrows();
+  marsArrowsListeners();
 }
 
 function marsArrowsListeners() {
   document.querySelector('#forward').addEventListener('click', () => {
-
+    if(l === 9) {
+      l = 0;
+    } else {
+    l += 1;
+    }
+    main.setAttribute("style", `background-image: url(${localMarsData.photos[l].img_src}`);
   });
 
   document.querySelector('#back').addEventListener('click', () => {
-
+    if(l === 0) {
+      l = 9;
+    } else {
+      l -= 1;
+    }
+    main.setAttribute("style", `background-image: url(${localMarsData.photos[l].img_src}`);
   });
 }
 
