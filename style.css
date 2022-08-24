@@ -58,12 +58,13 @@ p {
 }
 
 #searchInput {
-    font-size: 1.2vw;
+    font-size: 1.4vw;
     color: black;
     padding: 0px;
     margin: 5px;
-    min-height: 25px;
+    min-height: 30px;
     width: 20vw;
+    min-width: 80px;
     height: 1.5vw;
     align-self: center;
     border: 2px solid #3f3fff;
@@ -124,7 +125,6 @@ div#main-bar {
     width: 70%;
     right: 20px;
     bottom: 20px;
-    max-height: 300px;
     position: absolute;
     z-index: 10;
     transition: 3s;
@@ -152,24 +152,22 @@ class is removed or added back in with JavaScript */
     z-index: 15;
 }
 
-div#main-bar p {
-    color: whitesmoke;
-}
 
 div#main-bar span {
     font-family: Ubuntu mono;
-    font-size: 1.2rem;
+    font-size: 1.5vw;
     color: #3f3fff;
     font-weight: 900;
 }
 
 div#main-bar p {
-    font-size: 1rem;
+    font-size: 1.3vw;
     color: white;
 }
 
 span#date {
     margin-left: auto;
+    font-size: 1.5vw;
 }
 
 .arrow {
@@ -239,5 +237,23 @@ span#date {
         font-size: .7rem;
         width: 100px;
         height: 30px;
+    }
+    #searchInput {
+        font-size: .7rem;
+    }
+
+    div#main-bar {
+        width: 90vw;
+    }
+    div#main-bar span {
+        font-size: 1rem;
+    }
+    
+    div#main-bar p {
+        font-size: .9rem;
+    }
+    
+    span#date {
+        font-size: 1rem;
     }
 }
