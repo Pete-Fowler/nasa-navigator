@@ -103,6 +103,7 @@ function displaySearchResults(data) {
       console.log(details);
       main.setAttribute('style', `background-image: url(${details.collection.items[0].href}`);
       displaySearchDetail(object);
+      displayArrows();
     });    
   }
 
@@ -123,4 +124,21 @@ function displayDetails() {
 function hideDetails() {
   mainBar.style.opacity = 0;
   mainBar.classList.add('faded-out');
+}
+
+// Show forward / back arrows
+function displayArrows() {
+  const forward = document.createElement('div');
+  forward.id = 'forward';
+  forward.className = 'arrow';
+  forward.textContent = '>';
+  // forward.addEventListener('click', step('>'));
+  
+  const back = document.createElement('div');
+  back.id = 'back';
+  back.className = 'arrow';
+  back.textContent = '<';
+  // back.addEventListener('click', step('<'));
+
+  main.append(back, forward);
 }
