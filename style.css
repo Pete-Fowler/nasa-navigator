@@ -166,3 +166,35 @@ div#main-bar p {
 span#date {
     margin-left: auto;
 }
+
+.arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    font-weight: 900;
+    color: lightgray;
+    background-color: black;
+    width: 3.1rem;
+    height: 3.1rem;
+    opacity: .3;
+    position: absolute;
+    top: 50%;
+    transform:translateY(-50%);
+    transition: .4s;
+    border-radius: 5px;
+}
+
+.arrow:hover {
+    opacity: .6;
+    color: white;
+}
+
+#forward {
+    right: 10px;
+}
+
+#back {
+    left: 10px;
+}
+

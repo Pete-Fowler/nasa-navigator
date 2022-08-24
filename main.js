@@ -5,7 +5,7 @@ const submitButton = document.querySelector('#submit');
 submitButton.addEventListener('click', () => search(searchInput.value));
 
 const homeButton = document.querySelector("#home");
-homeButton.addEventListener ("click",() => displayIOD(localData));
+homeButton.addEventListener ("click",() => displayIOD(localIodData));
 
 const marsButton = document.querySelector("#mars");
 marsButton.addEventListener("click", getMars);
@@ -19,9 +19,11 @@ const expand = document.querySelector('#expand');
 expand.addEventListener('mouseover', displayDetails);
 expand.addEventListener('mouseout', hideDetails);
 
-let last = NaN;
-let localMarsData;
-let localData;
+let last = NaN;     // Used in displayMars
+let localMarsData;    // Not used
+let localIodData;      // Used in IOD event listener
+let localData    // Used with forward / back arrows
+let k = 0;          // Used with forward / back arrows
 
 getIOD();
 
@@ -31,7 +33,7 @@ function getIOD () {
   .then(res => res.json())
   .then(data => {
     console.log(data);
-    localData = data;
+    localIodData = data;
     displayIOD(data);
   });
 }
@@ -84,32 +86,49 @@ function search(string) {
   .then(res => res.json())
   .then(data => {
     console.log(data);
-    displaySearchResults(data);
+    localData = data;
+    displaySearchResults(localData);
     searchInput.value = '';
   });
 }
 
 function displaySearchResults(data) {
-  main.textContent = '';
-  let i = 0;
   const array = data.collection.items;
   const newArr = array.filter(object => {
     return object.data[0].media_type === 'image';
   });
-  const object = newArr[0].data[0];
-  fetch(`https://images-api.nasa.gov/asset/${newArr[0].data[0].nasa_id}`)
+  const object = newArr[k].data[0];
+  fetch(`https://images-api.nasa.gov/asset/${newArr[k].data[0].nasa_id}`)
     .then(res => res.json())
     .then(details => {
       console.log(details);
-      main.setAttribute('style', `background-image: url(${details.collection.items[0].href}`);
+      main.textContent = '';
+      main.setAttribute('style', `background-image: url(${details.collection.items[k].href}`);
       displaySearchDetail(object);
-    });    
+      displayArrows();
+      searchArrowsListeners();
+    });  
   }
 
 function displaySearchDetail(object) {
   currentView.textContent = object.title;
   title.textContent = object.title;
   description.textContent = object.description;
+}
+
+function searchArrowsListeners() {
+  const forward = document.querySelector('#forward');
+  forward.addEventListener('click', () => {
+    k += 1;
+    displaySearchResults(localData);
+  });
+  const back = document.querySelector('#back');
+  back.addEventListener('click', () => {
+    if(k >= 1) {
+      k -= 1;
+      displaySearchResults(localData);
+    }
+  });
 }
 
 // Show / hide modal window
@@ -123,4 +142,23 @@ function displayDetails() {
 function hideDetails() {
   mainBar.style.opacity = 0;
   mainBar.classList.add('faded-out');
+}
+
+// Show forward / back arrows
+function displayArrows() {
+  const forward = document.createElement('div');
+  forward.id = 'forward';
+  forward.className = 'arrow';
+  forward.textContent = '>';
+  
+  const back = document.createElement('div');
+  back.id = 'back';
+  back.className = 'arrow';
+  back.textContent = '<';
+
+  main.append(back, forward);
+}
+
+function step(direction) {
+  
 }
