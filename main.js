@@ -5,7 +5,7 @@ const submitButton = document.querySelector('#submit');
 submitButton.addEventListener('click', () => search(searchInput.value));
 
 const homeButton = document.querySelector("#home");
-homeButton.addEventListener ("click",() => displayIOD(localData));
+homeButton.addEventListener ("click",() => displayIOD(localIodData));
 
 const marsButton = document.querySelector("#mars");
 marsButton.addEventListener("click", getMars);
@@ -19,9 +19,10 @@ const expand = document.querySelector('#expand');
 expand.addEventListener('mouseover', displayDetails);
 expand.addEventListener('mouseout', hideDetails);
 
-let last = NaN;
-let localMarsData;
-let localData;
+let last = NaN;     // Used in displayMars
+let localMarsData;    // Not used
+let localIodData;      // Used in IOD event listener
+let localData    // Used with forward / back arrows
 
 getIOD();
 
@@ -31,7 +32,7 @@ function getIOD () {
   .then(res => res.json())
   .then(data => {
     console.log(data);
-    localData = data;
+    localIodData = data;
     displayIOD(data);
   });
 }
@@ -84,7 +85,8 @@ function search(string) {
   .then(res => res.json())
   .then(data => {
     console.log(data);
-    displaySearchResults(data);
+    localData = data;
+    displaySearchResults(localData);
     searchInput.value = '';
   });
 }
@@ -141,4 +143,8 @@ function displayArrows() {
   // back.addEventListener('click', step('<'));
 
   main.append(back, forward);
+}
+
+function step(direction) {
+  
 }
