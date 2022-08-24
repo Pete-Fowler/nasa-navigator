@@ -33,15 +33,12 @@ body {
 
 h1 {
     font-family: Ubuntu mono;
+    font-size: 2.5rem;
     color: #3f3fff;
 }
 
 h1, h3, p {
     margin: 0px 20px;
-}
-
-h1 {
-    font-size: 2.5rem;
 }
 
 #searchBox {
@@ -118,7 +115,6 @@ iframe {
 }
 
 div#main-bar {
-    font-size: .9rem;
     background-color: black;
     width: 70%;
     right: 20px;
@@ -163,6 +159,7 @@ div#main-bar span {
 }
 
 div#main-bar p {
+    font-size: 1rem;
     color: white;
 }
 
