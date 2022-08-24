@@ -8,6 +8,7 @@
 }
 
 body {
+    position: relative;
     display: grid;
     grid: 
     'nav main' 1fr
@@ -208,8 +209,8 @@ span#date {
     }
 
     #nav {
-    gap: 10px;
-    height: 25%;
+        gap: 10px;
+        height: 25%;
     }
 
     #button-box {
@@ -244,6 +245,8 @@ span#date {
 
     div#main-bar {
         width: 90vw;
+        left: 50%;
+        transform: translateX(-50%);
     }
     div#main-bar span {
         font-size: 1rem;
@@ -255,5 +258,10 @@ span#date {
     
     span#date {
         font-size: 1rem;
+    }
+    
+    #expand {
+        left: 50%;
+        transform: translateX(-50%);
     }
 }
