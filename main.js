@@ -20,10 +20,11 @@ expand.addEventListener('mouseover', displayDetails);
 expand.addEventListener('mouseout', hideDetails);
 
 let last = NaN;     // Used in displayMars
-let localMarsData;    // Not used
-let localIodData;      // Used in IOD event listener
-let localData    // Used with forward / back arrows
-let k = 0;          // Used with forward / back arrows
+let localMarsData;  // Used in displayMars for forward / back arrows
+let localIodData;   // Used in IOD event listener
+let localData       // Used with forward / back arrows in search
+let k = 0;          // Used with forward / back arrows in search
+let l = 0;          // Used with forward / back arrows in displayMars
 
 getIOD();
 
@@ -67,17 +68,33 @@ function getMars() {
 }
 
 function displayMars(data) {
-  main.textContent = "";
-  let element;
-  do {
-    element = Math.round(Math.random() * 9);
-  } while(element === last || element === NaN);
-  last = element;
-  main.setAttribute("style", `background-image: url(${data.photos[element].img_src}`)
-  roverName = data.photos[element].rover.name;
-  currentView.textContent = `Mars images captured by the rover ${roverName}`;
-  title.textContent = "NASA Mars Curiosity Rover";
-  description.textContent = "Part of NASA's Mars Science Laboratory mission, Curiosity is the largest and most capable rover ever sent to Mars. It launched November 26, 2011 and landed on Mars at 10:32 p.m. PDT on Aug. 5, 2012 (1:32 a.m. EDT on Aug. 6, 2012).Curiosity set out to answer the question: Did Mars ever have the right environmental conditions to support small life forms called microbes? Early in its mission, Curiosity's scientific tools found chemical and mineral evidence of past habitable environments on Mars. It continues to explore the rock record from a time when Mars could have been home to microbial life. Curiosity's large size allows it to carry an advanced kit of 10 science instruments. It has tools including 17 cameras, a laser to vaporize and study small pinpoint spots of rocks at a distance, and a drill to collect powdered rock samples. It hunts for special rocks that formed in water and/or have signs of organics.";
+  if(l === 0) {
+    let element;
+    do {
+      element = Math.round(Math.random() * 9);
+    } while(element === last || element === NaN);
+    last = element;
+    main.textContent = "";
+    main.setAttribute("style", `background-image: url(${data.photos[element].img_src}`)
+    roverName = data.photos[element].rover.name;
+    currentView.textContent = `Mars images captured by the rover ${roverName}`;
+    title.textContent = "NASA Mars Curiosity Rover";
+    description.textContent = "Part of NASA's Mars Science Laboratory mission, Curiosity is the largest and most capable rover ever sent to Mars. It launched November 26, 2011 and landed on Mars at 10:32 p.m. PDT on Aug. 5, 2012 (1:32 a.m. EDT on Aug. 6, 2012).Curiosity set out to answer the question: Did Mars ever have the right environmental conditions to support small life forms called microbes? Early in its mission, Curiosity's scientific tools found chemical and mineral evidence of past habitable environments on Mars. It continues to explore the rock record from a time when Mars could have been home to microbial life. Curiosity's large size allows it to carry an advanced kit of 10 science instruments. It has tools including 17 cameras, a laser to vaporize and study small pinpoint spots of rocks at a distance, and a drill to collect powdered rock samples. It hunts for special rocks that formed in water and/or have signs of organics.";
+    displayArrows();
+    marsArrowsListeners();
+  } else {
+    
+  }
+}
+
+function marsArrowsListeners() {
+  document.querySelector('#forward').addEventListener('click', () => {
+
+  });
+
+  document.querySelector('#back').addEventListener('click', () => {
+
+  });
 }
 
 // Search images API functions
@@ -116,6 +133,7 @@ function displaySearchDetail(object) {
   description.textContent = object.description;
 }
 
+// Adds event listeners and callbacks for arrows in search
 function searchArrowsListeners() {
   const forward = document.querySelector('#forward');
   forward.addEventListener('click', () => {
@@ -157,8 +175,4 @@ function displayArrows() {
   back.textContent = '<';
 
   main.append(back, forward);
-}
-
-function step(direction) {
-  
 }
