@@ -23,6 +23,7 @@ let last = NaN;     // Used in displayMars
 let localMarsData;    // Not used
 let localIodData;      // Used in IOD event listener
 let localData    // Used with forward / back arrows
+let k = 0;          // Used with forward / back arrows
 
 getIOD();
 
@@ -92,27 +93,42 @@ function search(string) {
 }
 
 function displaySearchResults(data) {
-  main.textContent = '';
-  let i = 0;
   const array = data.collection.items;
   const newArr = array.filter(object => {
     return object.data[0].media_type === 'image';
   });
-  const object = newArr[0].data[0];
-  fetch(`https://images-api.nasa.gov/asset/${newArr[0].data[0].nasa_id}`)
+  const object = newArr[k].data[0];
+  fetch(`https://images-api.nasa.gov/asset/${newArr[k].data[0].nasa_id}`)
     .then(res => res.json())
     .then(details => {
       console.log(details);
-      main.setAttribute('style', `background-image: url(${details.collection.items[0].href}`);
+      main.textContent = '';
+      main.setAttribute('style', `background-image: url(${details.collection.items[k].href}`);
       displaySearchDetail(object);
       displayArrows();
-    });    
+      searchArrowsListeners();
+    });  
   }
 
 function displaySearchDetail(object) {
   currentView.textContent = object.title;
   title.textContent = object.title;
   description.textContent = object.description;
+}
+
+function searchArrowsListeners() {
+  const forward = document.querySelector('#forward');
+  forward.addEventListener('click', () => {
+    k += 1;
+    displaySearchResults(localData);
+  });
+  const back = document.querySelector('#back');
+  back.addEventListener('click', () => {
+    if(k >= 1) {
+      k -= 1;
+      displaySearchResults(localData);
+    }
+  });
 }
 
 // Show / hide modal window
@@ -134,13 +150,11 @@ function displayArrows() {
   forward.id = 'forward';
   forward.className = 'arrow';
   forward.textContent = '>';
-  // forward.addEventListener('click', step('>'));
   
   const back = document.createElement('div');
   back.id = 'back';
   back.className = 'arrow';
   back.textContent = '<';
-  // back.addEventListener('click', step('<'));
 
   main.append(back, forward);
 }
