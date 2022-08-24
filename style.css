@@ -33,7 +33,7 @@ body {
 
 h1 {
     font-family: Ubuntu mono;
-    font-size: 2.5rem;
+    font-size: 3vw;
     color: #3f3fff;
 }
 
@@ -41,23 +41,42 @@ h1, h3, p {
     margin: 0px 20px;
 }
 
+h3 {
+    font-size: 1.5vw;
+}
+
+p {
+    font-size: 1.2vw;
+}
+
+#button-box {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    height: 50%;
+}
+
 #searchInput {
+    font-size: 1.2vw;
     color: black;
     padding: 0px;
     margin: 5px;
-    height: 25px;
-    width: 80%;
-    max-width: 200px;
+    min-height: 25px;
+    width: 20vw;
+    height: 1.5vw;
     align-self: center;
     border: 2px solid #3f3fff;
     border-radius: 5px;
 }
 
 button {
+    font-size: 1.2vw;
     background-color: black;
     border: 2px solid #3f3fff;
-    width: 150px;
-    height: 50px;
+    width: 13vw;
+    min-height: 50px;
+    height: 4vw;
     align-self: center;
     border-radius: 5px;
     transition: .5s;
@@ -189,34 +208,36 @@ span#date {
         display: flex;
         flex-direction: column;
     }
+
     #nav {
     gap: 10px;
-    height: 40%;
-}
+    height: 25%;
+    }
 
-#searchInput {
-}
+    #button-box {
+        flex-direction: row;
+        gap: 5px;
+    }
 
-h1 {
-    font-size: 1.2rem;
-}
+    h1 {
+        font-size: 1.2rem;
+    }
 
-h3 {
-    font-size: .8rem;
-}
+    h3 {
+        font-size: .8rem;
+    }
 
-p {
-    font-size: .7rem;
-}
+    p {
+        font-size: .7rem;
+    }
 
-h1, h3, p {
-    margin: 0px 10px;
-}
+    h1, h3, p {
+        margin: 0px 10px;
+    }
 
-button {
-    font-size: .7rem;
-    width: 100px;
-    height: 30px;
-
-}
+    button {
+        font-size: .7rem;
+        width: 100px;
+        height: 30px;
+    }
 }
