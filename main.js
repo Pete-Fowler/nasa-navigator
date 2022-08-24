@@ -58,7 +58,7 @@ function displayIOD(data) {
 
 // Mars button functions
 function getMars() {
-  return fetch("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&camera=navcam&api_key=k7cUJwa1gGIvD71WgzJVCjVdErEJWvQQX7aL9htz")
+  return fetch("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&camera=mast&api_key=k7cUJwa1gGIvD71WgzJVCjVdErEJWvQQX7aL9htz")
   .then(res => res.json())
   .then(data => {
     localMarsData = {...data};
@@ -69,7 +69,7 @@ function getMars() {
 
 function displayMars(data) {
   do {
-    l = Math.round(Math.random() * 9);
+    l = Math.round(Math.random() * 99);
   } while(l === last || l === NaN);
   last = l;
   main.textContent = "";
@@ -84,7 +84,7 @@ function displayMars(data) {
 
 function marsArrowsListeners() {
   document.querySelector('#forward').addEventListener('click', () => {
-    if(l === 9) {
+    if(l === 99) {
       l = 0;
     } else {
     l += 1;
@@ -94,7 +94,7 @@ function marsArrowsListeners() {
 
   document.querySelector('#back').addEventListener('click', () => {
     if(l === 0) {
-      l = 9;
+      l = 99;
     } else {
       l -= 1;
     }
