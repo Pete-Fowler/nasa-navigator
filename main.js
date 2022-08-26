@@ -52,6 +52,7 @@ function displayIOD(data) {
     video.src = data.url;
     main.append(video);
   }
+  currentView.textContent = 'Astronomy image of the day';
   title.textContent = `Title: ${data.title} | Image Date: ${data.date}`;
   description.textContent = data.explanation;
 }
