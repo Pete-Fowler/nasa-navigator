@@ -1,12 +1,6 @@
 
 # nasa-navigator
 
-This website allows the user explore NASA images and data. The images are incredible, and the user is able to view data on topics such as mars weather and near earth objects.
+<a href='https://pete-fowler.github.io/phase-1-nasa-navigator/'>Live Page</a>
 
-The user will be able to:
-  - View the astronomy image of the day
-  - Navigate between various data sources in the API such as MARS images and      asteroids / near earth objects
-  - Enter a search term into a form field which will search the NASA images and video library and display a result on the page.
-
-Page layout:
-  ![Page layout](./assets/layout.jpg)
+This website is a user interface to navigate images and data from the NASA APIs. It was built quickly during the Flatiron School with a deadline of a few days. It uses vanilla JavaScript and vanilla CSS. 
